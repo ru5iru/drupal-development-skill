@@ -3,6 +3,7 @@
 import contextlib
 import importlib.util
 import io
+import re
 import shutil
 import tempfile
 import unittest
@@ -121,11 +122,19 @@ class ValidationTests(unittest.TestCase):
 
     def test_unpinned_action_is_detected(self):
         path = self.repo / ".github/workflows/ci.yml"
-        path.write_text(path.read_text(encoding="utf-8").replace(
-            "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd", "actions/checkout@v6"
-        ), encoding="utf-8")
-        self.assertIn("Pin each CI action to a full commit hash: actions/checkout@v6",
-                      self.repository_errors())
+        workflow = path.read_text(encoding="utf-8")
+        for action in ("actions/checkout", "actions/setup-python"):
+            with self.subTest(action=action):
+                # Match the current pin so Dependabot can update it freely.
+                # Always start from the original workflow to isolate each action.
+                pattern = rf"(?m)(\buses:\s*{re.escape(action)}@)[0-9a-f]{{40}}(?=\s|$)"
+                changed, count = re.subn(pattern, r"\g<1>v6", workflow, count=1)
+                self.assertEqual(count, 1, f"Expected to replace the current SHA pin for {action}")
+                path.write_text(changed, encoding="utf-8")
+                self.assertIn(
+                    f"Pin each CI action to a full commit hash: {action}@v6",
+                    self.repository_errors(),
+                )
 
     def test_elevated_ci_permission_is_detected(self):
         path = self.repo / ".github/workflows/ci.yml"
