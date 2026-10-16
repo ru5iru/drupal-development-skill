@@ -1,0 +1,70 @@
+site_name: Drupal Coding Standards
+repo_url: https://git.drupalcode.org/project/coding_standards
+repo_name: drupal/coding_standards
+edit_uri: /-/edit/main/docs/
+theme:
+  name: material
+  logo: icon-w-drupal.png
+  favicon: logo.png
+  palette:
+    # Palette toggle for automatic mode
+    - media: '(prefers-color-scheme)'
+      primary: blue
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: '(prefers-color-scheme: light)'
+      primary: blue
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: '(prefers-color-scheme: dark)'
+      primary: blue
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features: []
+plugins:
+  - search
+  - privacy:
+      enabled: !ENV [CI, false]
+nav:
+  - Coding Standards: index.md
+  - PHP:
+      - Introduction: php/index.md
+      - PHP coding standards: php/coding.md
+      - API documentation and comment standards: php/documentation.md
+      - API Documentation Samples: php/documentation-examples.md
+      - Namespaces: php/namespaces.md
+      - Naming standards for services and extending Symfony: php/naming-services.md
+      - Exceptions: php/exceptions.md
+      - PSR-4 and autoload: php/psr4.md
+      - Placeholders and delimiters: php/placeholders-delimiters.md
+      - E_ALL compliance: php/e_all.md
+  - Accessibility: accessibility/accessibility.md
+  - CSS:
+      - CSS coding standards: css/coding.md
+      - CSS formatting guidelines: css/format.md
+      - CSScomb settings for Drupal (CSS formatting and sort tool): css/csscomb.md
+      - CSS architecture (for Drupal 9): css/architecture.md
+      - CSS file organization: css/file-organization.md
+      - What to look for when reviewing CSS: css/review.md
+  - JavaScript:
+      - Coding standards: javascript/coding.md
+      - Best practices: javascript/best-practice.md
+      - ESLint settings: javascript/eslint.md
+      - API documentation and comment standard: javascript/documentation.md
+      - JQuery coding standard: javascript/jquery.md
+  - SQL:
+      - Coding conventions: sql/conventions.md
+      - Key words: sql/keywords.md
+      - Avoid "SELECT * FROM...": sql/select-from.md
+  - TWIG: twig/coding.md
+  - Markup: markup/style.md
+  - Spelling: spelling/spelling.md
+  - YAML: yaml/configuration-files.md
+  - Composer: composer/package-name.md

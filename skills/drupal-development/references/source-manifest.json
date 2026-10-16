@@ -1,0 +1,1757 @@
+{
+  "schema_version": 1,
+  "archive_name": "coding_standards-main.zip",
+  "archive_sha256": "6155030187ad82212a0e61e4991f7df6f7599bf7b5a9d2e3f2169ff84f16ab60",
+  "archive_root": "coding_standards-main",
+  "source_revision": "4a57bff6fa183323ddbab5aea7ff284fce92904b",
+  "file_count": 40,
+  "total_bytes": 961231,
+  "files": [
+    {
+      "path": ".cspell-project-words.txt",
+      "bytes": 141,
+      "sha256": "ca0abc1938198796e9e9c6927b386b8896d6868eecb8fddaf28de4add93ccf31"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 5,
+      "sha256": "ba1759da69db12eb17bd9914d1f27d9674eae0e2c47ea5fadef5bdf07de02d53"
+    },
+    {
+      "path": ".gitlab-ci.yml",
+      "bytes": 308,
+      "sha256": "ac191f086250c44b0eff127ff92527df5feb209ac1da5a71e76d9c8303244e5b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 733,
+      "sha256": "8e28283c340c1405d42b26a13f5276837a23167bc30b2c10827b75616c1c1ed5",
+      "headings": []
+    },
+    {
+      "path": "docs/accessibility/accessibility.md",
+      "bytes": 47,
+      "sha256": "869f4aacf80896f81751839dbde51a896e89ac3440d06260c5c30473ee258f80",
+      "headings": []
+    },
+    {
+      "path": "docs/composer/package-name.md",
+      "bytes": 4729,
+      "sha256": "7b5e371f00f831cd10bd98eff12fec685a01358a0fc7b43452297bded119d1e4",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "Composer package name convention"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "text": "Drupal Projects"
+        },
+        {
+          "line": 13,
+          "level": 3,
+          "text": "Convention"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "text": "Examples"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "text": "Modules, Themes and Profiles"
+        },
+        {
+          "line": 37,
+          "level": 3,
+          "text": "Convention"
+        },
+        {
+          "line": 55,
+          "level": 3,
+          "text": "Examples"
+        },
+        {
+          "line": 62,
+          "level": 2,
+          "text": "Components"
+        },
+        {
+          "line": 66,
+          "level": 3,
+          "text": "Convention"
+        },
+        {
+          "line": 78,
+          "level": 3,
+          "text": "Examples"
+        }
+      ]
+    },
+    {
+      "path": "docs/css/architecture.md",
+      "bytes": 18847,
+      "sha256": "10dae042bbf782365539915ae719c519b15979538676c39c87accf692173447b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "CSS architecture (for Drupal 9)"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "text": "Goals"
+        },
+        {
+          "line": 11,
+          "level": 3,
+          "text": "1. Predictable"
+        },
+        {
+          "line": 15,
+          "level": 3,
+          "text": "2. Reusable"
+        },
+        {
+          "line": 19,
+          "level": 3,
+          "text": "3. Maintainable"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "text": "4. Scalable"
+        },
+        {
+          "line": 27,
+          "level": 2,
+          "text": "The Component"
+        },
+        {
+          "line": 31,
+          "level": 2,
+          "text": "Common CSS Pitfalls"
+        },
+        {
+          "line": 35,
+          "level": 3,
+          "text": "Pitfall: Modifying components based on context"
+        },
+        {
+          "line": 44,
+          "level": 3,
+          "text": "Pitfall: Relying on HTML structure"
+        },
+        {
+          "line": 51,
+          "level": 3,
+          "text": "Pitfall: Overly generic class names"
+        },
+        {
+          "line": 63,
+          "level": 3,
+          "text": "Pitfall: Making a rule do too much"
+        },
+        {
+          "line": 67,
+          "level": 3,
+          "text": "Pitfall: Needing to undo styles"
+        },
+        {
+          "line": 71,
+          "level": 2,
+          "text": "Best Practices"
+        },
+        {
+          "line": 73,
+          "level": 3,
+          "text": "1. Avoid reliance on HTML structure"
+        },
+        {
+          "line": 97,
+          "level": 3,
+          "text": "using their own classes"
+        },
+        {
+          "line": 111,
+          "level": 3,
+          "text": "3. Extend components using modifier classes"
+        },
+        {
+          "line": 136,
+          "level": 3,
+          "text": "4. Separate Concerns"
+        },
+        {
+          "line": 173,
+          "level": 3,
+          "text": "5. Name Components Using Design Semantics"
+        },
+        {
+          "line": 189,
+          "level": 4,
+          "text": "Note for core developers"
+        },
+        {
+          "line": 193,
+          "level": 4,
+          "text": "Note for module developers"
+        },
+        {
+          "line": 199,
+          "level": 3,
+          "text": "6. Formatting Class Names"
+        },
+        {
+          "line": 236,
+          "level": 3,
+          "text": "Closing Note: Specificity, ids and `!important`"
+        },
+        {
+          "line": 248,
+          "level": 2,
+          "text": "Case Study"
+        },
+        {
+          "line": 341,
+          "level": 2,
+          "text": "Acknowledgments"
+        }
+      ]
+    },
+    {
+      "path": "docs/css/coding.md",
+      "bytes": 1140,
+      "sha256": "0fdb49b77f1bc9265cabf84413e2a05238fb9ef7518692ba40c8f57fbae3d705",
+      "headings": [
+        {
+          "line": 11,
+          "level": 2,
+          "text": "Acknowledgements"
+        }
+      ]
+    },
+    {
+      "path": "docs/css/csscomb.md",
+      "bytes": 19301,
+      "sha256": "b94d746c138b1579bb791b06ecf0d8027208130eee8d3be10b6900a10f622b6f",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "CSScomb settings for Drupal (CSS formatting and sort tool)"
+        },
+        {
+          "line": 446,
+          "level": 3,
+          "text": "Note"
+        },
+        {
+          "line": 455,
+          "level": 3,
+          "text": "Alternatives"
+        }
+      ]
+    },
+    {
+      "path": "docs/css/file-organization.md",
+      "bytes": 8382,
+      "sha256": "23ff1a3e2ad17ffb4813133b8a9e6c8f19df64f2a7aabf28792979851ce0bd9b",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "CSS file organization"
+        },
+        {
+          "line": 5,
+          "level": 2,
+          "text": "File Structure"
+        },
+        {
+          "line": 21,
+          "level": 3,
+          "text": "CSS files for Drupal modules"
+        },
+        {
+          "line": 37,
+          "level": 3,
+          "text": "CSS files for Drupal themes"
+        },
+        {
+          "line": 65,
+          "level": 2,
+          "text": "Aggregating CSS"
+        },
+        {
+          "line": 120,
+          "level": 3,
+          "text": "SMACSS and Sass/Compass"
+        }
+      ]
+    },
+    {
+      "path": "docs/css/files/10.progress.png",
+      "bytes": 18322,
+      "sha256": "c4790a852cdb58d0cd6357859eb4bee26d6438338e29874c8c01f7500176c24f"
+    },
+    {
+      "path": "docs/css/format.md",
+      "bytes": 9045,
+      "sha256": "27808130ec8caf57ff883f28fb75392e207dd4de81768a8bd2320563cc18a9df",
+      "headings": [
+        {
+          "line": 1,
+          "level": 2,
+          "text": "Whitespace"
+        },
+        {
+          "line": 3,
+          "level": 3,
+          "text": "Indentation"
+        },
+        {
+          "line": 23,
+          "level": 3,
+          "text": "Blank lines"
+        },
+        {
+          "line": 54,
+          "level": 3,
+          "text": "Line endings"
+        },
+        {
+          "line": 64,
+          "level": 2,
+          "text": "Comments"
+        },
+        {
+          "line": 70,
+          "level": 3,
+          "text": "File comments"
+        },
+        {
+          "line": 74,
+          "level": 3,
+          "text": "Single line comments describing a ruleset"
+        },
+        {
+          "line": 78,
+          "level": 3,
+          "text": "Multi-line comments describing a ruleset"
+        },
+        {
+          "line": 82,
+          "level": 3,
+          "text": "Multi-line comments inside a ruleset"
+        },
+        {
+          "line": 86,
+          "level": 3,
+          "text": "Single-line comments"
+        },
+        {
+          "line": 132,
+          "level": 2,
+          "text": "Properties where browsers do not have or support CSS logical properties"
+        },
+        {
+          "line": 146,
+          "level": 2,
+          "text": "Rulesets"
+        },
+        {
+          "line": 170,
+          "level": 2,
+          "text": "Properties"
+        },
+        {
+          "line": 183,
+          "level": 2,
+          "text": "Declaration order"
+        }
+      ]
+    },
+    {
+      "path": "docs/css/review.md",
+      "bytes": 3572,
+      "sha256": "f4468983b38e5407dd23644d1ae287b374c4cf574d6db88b1435dc2d47f636ef",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "What to look for when reviewing CSS"
+        },
+        {
+          "line": 5,
+          "level": 2,
+          "text": "Architecture guidelines"
+        },
+        {
+          "line": 7,
+          "level": 3,
+          "text": "Is all the code still in use?"
+        },
+        {
+          "line": 13,
+          "level": 3,
+          "text": "Is some code redundant?"
+        },
+        {
+          "line": 30,
+          "level": 3,
+          "text": "Are the components named correctly?"
+        },
+        {
+          "line": 36,
+          "level": 3,
+          "text": "Should the code be abstracted out into a common reusable class?"
+        },
+        {
+          "line": 46,
+          "level": 3,
+          "text": "Are the selectors correct?"
+        },
+        {
+          "line": 50,
+          "level": 3,
+          "text": "Is the code in the correct file?"
+        },
+        {
+          "line": 58,
+          "level": 2,
+          "text": "Formatting guidelines"
+        }
+      ]
+    },
+    {
+      "path": "docs/icon-w-drupal.png",
+      "bytes": 108368,
+      "sha256": "3a56c59f619cdbee34e089e6f0a31374b642c6f68d0b09072f58f0a097202131"
+    },
+    {
+      "path": "docs/index.md",
+      "bytes": 777,
+      "sha256": "ac9e04eb0d2d374a75e370746a5f35f7e7cf88eb9190ce3452d6594a2003b5d5",
+      "headings": [
+        {
+          "line": 6,
+          "level": 1,
+          "text": "Coding Standards"
+        }
+      ]
+    },
+    {
+      "path": "docs/javascript/best-practice.md",
+      "bytes": 3743,
+      "sha256": "7e9fe2fb4e7b405d0e7db01b71f1007e8948a34eb563eb3c7da20e73b8608345",
+      "headings": [
+        {
+          "line": 3,
+          "level": 2,
+          "text": "JavaScript code placement"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "text": "Use literal expressions"
+        },
+        {
+          "line": 26,
+          "level": 2,
+          "text": "\"with\" statement"
+        },
+        {
+          "line": 45,
+          "level": 2,
+          "text": "Avoiding unreachable code"
+        },
+        {
+          "line": 49,
+          "level": 2,
+          "text": "`eval()` is evil"
+        },
+        {
+          "line": 59,
+          "level": 2,
+          "text": "Preventing XSS"
+        },
+        {
+          "line": 65,
+          "level": 2,
+          "text": "Modifying the DOM"
+        },
+        {
+          "line": 82,
+          "level": 2,
+          "text": "Specific Stuff"
+        },
+        {
+          "line": 86,
+          "level": 3,
+          "text": "Theming"
+        },
+        {
+          "line": 90,
+          "level": 3,
+          "text": "String Translation"
+        }
+      ]
+    },
+    {
+      "path": "docs/javascript/coding.md",
+      "bytes": 9795,
+      "sha256": "1ee96b4f1a038e7d206831125e7a2f0da8a92366f470bce5abf47acca36b2a43",
+      "headings": [
+        {
+          "line": 3,
+          "level": 2,
+          "text": "Indenting"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "text": "Semicolons"
+        },
+        {
+          "line": 34,
+          "level": 2,
+          "text": "File-closure"
+        },
+        {
+          "line": 49,
+          "level": 2,
+          "text": "CamelCasing"
+        },
+        {
+          "line": 62,
+          "level": 2,
+          "text": "Variables and Arrays"
+        },
+        {
+          "line": 77,
+          "level": 3,
+          "text": "Global Variables"
+        },
+        {
+          "line": 81,
+          "level": 3,
+          "text": "Constants"
+        },
+        {
+          "line": 100,
+          "level": 3,
+          "text": "Arrays"
+        },
+        {
+          "line": 128,
+          "level": 3,
+          "text": "Typeof"
+        },
+        {
+          "line": 138,
+          "level": 2,
+          "text": "Functions"
+        },
+        {
+          "line": 140,
+          "level": 3,
+          "text": "Function and method names"
+        },
+        {
+          "line": 152,
+          "level": 3,
+          "text": "Function Declarations"
+        },
+        {
+          "line": 183,
+          "level": 3,
+          "text": "Function Calls"
+        },
+        {
+          "line": 195,
+          "level": 2,
+          "text": "Constructors"
+        },
+        {
+          "line": 209,
+          "level": 2,
+          "text": "Comments"
+        },
+        {
+          "line": 228,
+          "level": 2,
+          "text": "String Concatenation"
+        },
+        {
+          "line": 247,
+          "level": 2,
+          "text": "Control Structures"
+        },
+        {
+          "line": 269,
+          "level": 3,
+          "text": "switch"
+        },
+        {
+          "line": 288,
+          "level": 3,
+          "text": "try"
+        },
+        {
+          "line": 304,
+          "level": 3,
+          "text": "for in"
+        },
+        {
+          "line": 326,
+          "level": 2,
+          "text": "Operators"
+        },
+        {
+          "line": 328,
+          "level": 3,
+          "text": "Comparisons"
+        },
+        {
+          "line": 334,
+          "level": 3,
+          "text": "Comma Operator"
+        }
+      ]
+    },
+    {
+      "path": "docs/javascript/documentation.md",
+      "bytes": 5521,
+      "sha256": "b33c348b9e07d258a6ab4396b3d2e39f6b5c5590a1be60ef55b8bedd3da65fa6",
+      "headings": [
+        {
+          "line": 14,
+          "level": 2,
+          "text": "Tag order"
+        },
+        {
+          "line": 52,
+          "level": 2,
+          "text": "Documenting a JavaScript file"
+        },
+        {
+          "line": 70,
+          "level": 2,
+          "text": "Documenting behaviors"
+        },
+        {
+          "line": 93,
+          "level": 2,
+          "text": "Documenting usual constructs"
+        }
+      ]
+    },
+    {
+      "path": "docs/javascript/eslint.md",
+      "bytes": 2474,
+      "sha256": "5f347206e52293109041f57cc4d9b54fa0c45d26dd81f20f74954d2113f14e28",
+      "headings": [
+        {
+          "line": 16,
+          "level": 2,
+          "text": "Contrib modules"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "text": "Checking custom JavaScript with ESLint"
+        },
+        {
+          "line": 38,
+          "level": 1,
+          "text": "Before running these commands, install node.js, npm, and npx"
+        }
+      ]
+    },
+    {
+      "path": "docs/javascript/jquery.md",
+      "bytes": 5586,
+      "sha256": "136aa6996461696a6979844730d0e2360075e546aa0043c910eb28dc25753554",
+      "headings": [
+        {
+          "line": 1,
+          "level": 2,
+          "text": "Prefix variables that point to jQuery objects with a dollar sign($)"
+        },
+        {
+          "line": 33,
+          "level": 3,
+          "text": "Avoid compatibility issues"
+        },
+        {
+          "line": 37,
+          "level": 3,
+          "text": "Chaining"
+        },
+        {
+          "line": 54,
+          "level": 2,
+          "text": "Event Delegation"
+        },
+        {
+          "line": 94,
+          "level": 2,
+          "text": "Functions"
+        },
+        {
+          "line": 112,
+          "level": 2,
+          "text": "Context"
+        },
+        {
+          "line": 136,
+          "level": 2,
+          "text": "Using #id or .class"
+        },
+        {
+          "line": 140,
+          "level": 2,
+          "text": "jQuery.attr()"
+        },
+        {
+          "line": 159,
+          "level": 2,
+          "text": "jQuery.each()"
+        }
+      ]
+    },
+    {
+      "path": "docs/logo.png",
+      "bytes": 299637,
+      "sha256": "31fb84648f6558654a0ddf08c705efa06557e1ff792e86c04c3b92d12627ac1b"
+    },
+    {
+      "path": "docs/markup/style.md",
+      "bytes": 239,
+      "sha256": "0d7e5e4cecddd1f70498148835b5f30376c77dac2f8d9f7fb4e5e7a4e6024d2a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "Drupal Markup Style Guide"
+        }
+      ]
+    },
+    {
+      "path": "docs/php/coding.md",
+      "bytes": 28217,
+      "sha256": "4185aaa86cd743e3d260660a008a2f1e92ef58b5cf2979858a4b568645dae99f",
+      "headings": [
+        {
+          "line": 3,
+          "level": 2,
+          "text": "Arrays"
+        },
+        {
+          "line": 25,
+          "level": 2,
+          "text": "Casting"
+        },
+        {
+          "line": 29,
+          "level": 2,
+          "text": "Chaining"
+        },
+        {
+          "line": 53,
+          "level": 2,
+          "text": "Class Constructor Calls"
+        },
+        {
+          "line": 75,
+          "level": 2,
+          "text": "Comments"
+        },
+        {
+          "line": 79,
+          "level": 2,
+          "text": "Control Structures"
+        },
+        {
+          "line": 126,
+          "level": 3,
+          "text": "Alternate control statement syntax for templates"
+        },
+        {
+          "line": 140,
+          "level": 2,
+          "text": "Declaring Classes"
+        },
+        {
+          "line": 154,
+          "level": 2,
+          "text": "Example URLs"
+        },
+        {
+          "line": 158,
+          "level": 2,
+          "text": "Function Calls"
+        },
+        {
+          "line": 166,
+          "level": 2,
+          "text": "Function Declarations"
+        },
+        {
+          "line": 195,
+          "level": 2,
+          "text": "Including Code"
+        },
+        {
+          "line": 212,
+          "level": 2,
+          "text": "Indenting and Whitespace"
+        },
+        {
+          "line": 281,
+          "level": 2,
+          "text": "Instantiation"
+        },
+        {
+          "line": 288,
+          "level": 2,
+          "text": "Line length and wrapping"
+        },
+        {
+          "line": 340,
+          "level": 2,
+          "text": "Naming Conventions"
+        },
+        {
+          "line": 342,
+          "level": 3,
+          "text": "Functions and variables"
+        },
+        {
+          "line": 348,
+          "level": 3,
+          "text": "Persistent Variables"
+        },
+        {
+          "line": 352,
+          "level": 3,
+          "text": "Constants"
+        },
+        {
+          "line": 373,
+          "level": 3,
+          "text": "Global Variables"
+        },
+        {
+          "line": 377,
+          "level": 3,
+          "text": "Classes, Methods and Properties"
+        },
+        {
+          "line": 430,
+          "level": 3,
+          "text": "Enums"
+        },
+        {
+          "line": 446,
+          "level": 3,
+          "text": "File names"
+        },
+        {
+          "line": 454,
+          "level": 2,
+          "text": "Operators"
+        },
+        {
+          "line": 486,
+          "level": 2,
+          "text": "Parameter and return type hinting"
+        },
+        {
+          "line": 496,
+          "level": 3,
+          "text": "New functions and methods"
+        },
+        {
+          "line": 500,
+          "level": 3,
+          "text": "Existing functions and methods"
+        },
+        {
+          "line": 504,
+          "level": 3,
+          "text": "Notes about specific data types"
+        },
+        {
+          "line": 506,
+          "level": 4,
+          "text": "Mixed datatypes"
+        },
+        {
+          "line": 510,
+          "level": 4,
+          "text": "Nullable types"
+        },
+        {
+          "line": 514,
+          "level": 4,
+          "text": "Objects"
+        },
+        {
+          "line": 518,
+          "level": 4,
+          "text": "Void"
+        },
+        {
+          "line": 522,
+          "level": 2,
+          "text": "PHP Code Tags"
+        },
+        {
+          "line": 532,
+          "level": 2,
+          "text": "Quotes"
+        },
+        {
+          "line": 541,
+          "level": 2,
+          "text": "Semicolons"
+        },
+        {
+          "line": 550,
+          "level": 2,
+          "text": "Strict type declaration"
+        },
+        {
+          "line": 565,
+          "level": 2,
+          "text": "String Concatenations"
+        },
+        {
+          "line": 596,
+          "level": 2,
+          "text": "Use of interfaces"
+        },
+        {
+          "line": 602,
+          "level": 2,
+          "text": "Visibility"
+        },
+        {
+          "line": 604,
+          "level": 3,
+          "text": "Methods and Functions"
+        },
+        {
+          "line": 612,
+          "level": 3,
+          "text": "Properties"
+        },
+        {
+          "line": 620,
+          "level": 3,
+          "text": "abstract, final, and static"
+        },
+        {
+          "line": 628,
+          "level": 2,
+          "text": "Drupal 7 class/interface autoloading"
+        },
+        {
+          "line": 634,
+          "level": 2,
+          "text": "Helper Modules"
+        }
+      ]
+    },
+    {
+      "path": "docs/php/documentation-examples.md",
+      "bytes": 13019,
+      "sha256": "9c40f999e96c62fe835fb42d846d3ab9840e8417979f010f4463474de6951dc3",
+      "headings": [
+        {
+          "line": 3,
+          "level": 2,
+          "text": "Files"
+        },
+        {
+          "line": 7,
+          "level": 3,
+          "text": "Module file (*.module)"
+        },
+        {
+          "line": 18,
+          "level": 3,
+          "text": "Install file (*.install)"
+        },
+        {
+          "line": 29,
+          "level": 3,
+          "text": "Include file (*.inc)"
+        },
+        {
+          "line": 40,
+          "level": 3,
+          "text": "PHP theme template file (*.tpl.php -- base implementation)"
+        },
+        {
+          "line": 62,
+          "level": 3,
+          "text": "File containing a single class"
+        },
+        {
+          "line": 109,
+          "level": 3,
+          "text": "PHP theme template file (*.tpl.php -- theme-specific override )"
+        },
+        {
+          "line": 130,
+          "level": 2,
+          "text": "Functions"
+        },
+        {
+          "line": 134,
+          "level": 3,
+          "text": "Generic functions"
+        },
+        {
+          "line": 159,
+          "level": 3,
+          "text": "Callback functions"
+        },
+        {
+          "line": 210,
+          "level": 3,
+          "text": "Hook definition functions"
+        },
+        {
+          "line": 248,
+          "level": 3,
+          "text": "hook implementation"
+        },
+        {
+          "line": 259,
+          "level": 3,
+          "text": "hook_update_N implementation (update function)"
+        },
+        {
+          "line": 271,
+          "level": 3,
+          "text": "form-generating function (including validate/submit)"
+        },
+        {
+          "line": 277,
+          "level": 3,
+          "text": "callbacks"
+        },
+        {
+          "line": 295,
+          "level": 3,
+          "text": "render API callback"
+        },
+        {
+          "line": 301,
+          "level": 3,
+          "text": "themeable function"
+        },
+        {
+          "line": 319,
+          "level": 2,
+          "text": "Classes"
+        },
+        {
+          "line": 323,
+          "level": 3,
+          "text": "Class with a namespace"
+        },
+        {
+          "line": 340,
+          "level": 3,
+          "text": "Class without a namespace"
+        },
+        {
+          "line": 344,
+          "level": 3,
+          "text": "Interface"
+        },
+        {
+          "line": 362,
+          "level": 3,
+          "text": "Member function"
+        },
+        {
+          "line": 366,
+          "level": 3,
+          "text": "Member function that overrides base class method"
+        },
+        {
+          "line": 380,
+          "level": 3,
+          "text": "Member function that implements interface method"
+        },
+        {
+          "line": 389,
+          "level": 3,
+          "text": "Member constant"
+        },
+        {
+          "line": 393,
+          "level": 3,
+          "text": "Member variable"
+        },
+        {
+          "line": 397,
+          "level": 3,
+          "text": "Plugin annotation"
+        },
+        {
+          "line": 403,
+          "level": 2,
+          "text": "Miscellaneous examples"
+        },
+        {
+          "line": 405,
+          "level": 3,
+          "text": "Constant"
+        },
+        {
+          "line": 418,
+          "level": 3,
+          "text": "Global variable"
+        },
+        {
+          "line": 422,
+          "level": 3,
+          "text": "Bullet lists"
+        },
+        {
+          "line": 428,
+          "level": 3,
+          "text": "Sections, sub-sections, and in-page references"
+        },
+        {
+          "line": 434,
+          "level": 3,
+          "text": "Code samples (@code)"
+        },
+        {
+          "line": 446,
+          "level": 3,
+          "text": "@link"
+        },
+        {
+          "line": 463,
+          "level": 3,
+          "text": "@see"
+        },
+        {
+          "line": 484,
+          "level": 3,
+          "text": "Defining a topic/group"
+        },
+        {
+          "line": 490,
+          "level": 3,
+          "text": "@ingroup and @addtogroup"
+        }
+      ]
+    },
+    {
+      "path": "docs/php/documentation.md",
+      "bytes": 43840,
+      "sha256": "a9a24f669dd1366725d26add150b003c6d8b18b8bfa9e027584a7ed41a94bb3c",
+      "headings": [
+        {
+          "line": 7,
+          "level": 2,
+          "text": "Notes and standards"
+        },
+        {
+          "line": 9,
+          "level": 3,
+          "text": "General considerations for API module parsing"
+        },
+        {
+          "line": 39,
+          "level": 3,
+          "text": "General documentation"
+        },
+        {
+          "line": 70,
+          "level": 3,
+          "text": "Classes and namespaces"
+        },
+        {
+          "line": 90,
+          "level": 3,
+          "text": "Data types in documentation"
+        },
+        {
+          "line": 108,
+          "level": 3,
+          "text": "Functions"
+        },
+        {
+          "line": 131,
+          "level": 4,
+          "text": "Hook definition"
+        },
+        {
+          "line": 135,
+          "level": 4,
+          "text": "Hook implementation"
+        },
+        {
+          "line": 155,
+          "level": 4,
+          "text": "Update functions (implementations of hook_update_N())"
+        },
+        {
+          "line": 170,
+          "level": 4,
+          "text": "Callbacks for built-in PHP functions"
+        },
+        {
+          "line": 181,
+          "level": 4,
+          "text": "Callback definitions and implementations"
+        },
+        {
+          "line": 291,
+          "level": 4,
+          "text": "Form-generating functions"
+        },
+        {
+          "line": 335,
+          "level": 4,
+          "text": "hook_menu page router callback functions"
+        },
+        {
+          "line": 364,
+          "level": 4,
+          "text": "Render API callback functions"
+        },
+        {
+          "line": 383,
+          "level": 4,
+          "text": "Themeable functions"
+        },
+        {
+          "line": 407,
+          "level": 4,
+          "text": "Template preprocess functions"
+        },
+        {
+          "line": 431,
+          "level": 3,
+          "text": "In-line code comments"
+        },
+        {
+          "line": 463,
+          "level": 3,
+          "text": "Lists in documentation"
+        },
+        {
+          "line": 495,
+          "level": 3,
+          "text": "Theme template files"
+        },
+        {
+          "line": 530,
+          "level": 3,
+          "text": "Order of documentation sections"
+        },
+        {
+          "line": 546,
+          "level": 3,
+          "text": "PHPUnit tests"
+        },
+        {
+          "line": 551,
+          "level": 2,
+          "text": "Tag reference"
+        },
+        {
+          "line": 553,
+          "level": 3,
+          "text": "@code: Code samples"
+        },
+        {
+          "line": 569,
+          "level": 3,
+          "text": "@defgroup, @addtogroup, @ingroup: Groups and topics"
+        },
+        {
+          "line": 639,
+          "level": 3,
+          "text": "@deprecated: Indicating deprecated functionality"
+        },
+        {
+          "line": 675,
+          "level": 3,
+          "text": "@Event: Documenting events"
+        },
+        {
+          "line": 695,
+          "level": 3,
+          "text": "@file: Documenting files"
+        },
+        {
+          "line": 730,
+          "level": 3,
+          "text": "{@inheritdoc}: Documentation inheritance"
+        },
+        {
+          "line": 732,
+          "level": 4,
+          "text": "Method"
+        },
+        {
+          "line": 745,
+          "level": 4,
+          "text": "Property"
+        },
+        {
+          "line": 758,
+          "level": 3,
+          "text": "@link: HTML links"
+        },
+        {
+          "line": 774,
+          "level": 3,
+          "text": "@mainpage: Main documentation for a branch"
+        },
+        {
+          "line": 787,
+          "level": 3,
+          "text": "@param: Function parameters"
+        },
+        {
+          "line": 807,
+          "level": 3,
+          "text": "@Annotation, @Plugin, etc.: Plugin discovery annotations"
+        },
+        {
+          "line": 834,
+          "level": 3,
+          "text": "@ref: References to sections"
+        },
+        {
+          "line": 851,
+          "level": 3,
+          "text": "@return: Function return values"
+        },
+        {
+          "line": 868,
+          "level": 3,
+          "text": "@section, @subsection: Documentation sections"
+        },
+        {
+          "line": 889,
+          "level": 3,
+          "text": "@see: See Also references"
+        },
+        {
+          "line": 909,
+          "level": 3,
+          "text": "@throws: Thrown exceptions"
+        },
+        {
+          "line": 924,
+          "level": 3,
+          "text": "@todo: To Do notes"
+        },
+        {
+          "line": 938,
+          "level": 3,
+          "text": "@var: Class property data types"
+        }
+      ]
+    },
+    {
+      "path": "docs/php/e_all.md",
+      "bytes": 2320,
+      "sha256": "18b579a58ec317f37621377a95f7147531562f7b8acdde764ebc44a7999c57e8",
+      "headings": [
+        {
+          "line": 1,
+          "level": 2,
+          "text": "Adjusting the error reporting level"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "text": "Use of isset() or !empty()"
+        }
+      ]
+    },
+    {
+      "path": "docs/php/exceptions.md",
+      "bytes": 3036,
+      "sha256": "7beefc4a6eb69a21ca9dae9e97ec3fc071dae701abac1e8dd5b59db22e418c24",
+      "headings": [
+        {
+          "line": 1,
+          "level": 2,
+          "text": "Basic Exception Naming Conventions"
+        },
+        {
+          "line": 13,
+          "level": 2,
+          "text": "Exception Subclasses"
+        },
+        {
+          "line": 17,
+          "level": 3,
+          "text": "Example:"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "text": "Try-catch blocks"
+        },
+        {
+          "line": 56,
+          "level": 3,
+          "text": "Inheritance"
+        }
+      ]
+    },
+    {
+      "path": "docs/php/index.md",
+      "bytes": 306,
+      "sha256": "b71a450aec9ae03faff70a82874d9826d69b6672eb870f99f444dd5503d63b1e",
+      "headings": []
+    },
+    {
+      "path": "docs/php/namespaces.md",
+      "bytes": 5339,
+      "sha256": "0880f175788a5f3afed80005f495c06b0911ade157bb046b8322a2d430412dd2",
+      "headings": [
+        {
+          "line": 5,
+          "level": 2,
+          "text": "\"use\"-ing classes"
+        },
+        {
+          "line": 85,
+          "level": 2,
+          "text": "Class aliasing"
+        },
+        {
+          "line": 106,
+          "level": 3,
+          "text": "Order of import"
+        },
+        {
+          "line": 120,
+          "level": 2,
+          "text": "Modules"
+        },
+        {
+          "line": 136,
+          "level": 3,
+          "text": "Examples"
+        }
+      ]
+    },
+    {
+      "path": "docs/php/naming-services.md",
+      "bytes": 966,
+      "sha256": "b57462c3449eed5df8961cb35c6e524c56dce4c675c1b43e22566cd35112cdda",
+      "headings": [
+        {
+          "line": 1,
+          "level": 2,
+          "text": "Manipulating the Request object:"
+        }
+      ]
+    },
+    {
+      "path": "docs/php/placeholders-delimiters.md",
+      "bytes": 1313,
+      "sha256": "bf1b94ad4ee26d2a87835a7f2bf19d29d936e904bbadc234b68a10848dbfd462",
+      "headings": [
+        {
+          "line": 1,
+          "level": 2,
+          "text": "Temporary place-holders and delimiters"
+        },
+        {
+          "line": 9,
+          "level": 2,
+          "text": "Finding your placeholders"
+        }
+      ]
+    },
+    {
+      "path": "docs/php/psr4.md",
+      "bytes": 4061,
+      "sha256": "20a0285c7ad65855624df215c4625d0a3a711e63deb34f31cfc57593cff9d07a",
+      "headings": [
+        {
+          "line": 1,
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "line": 61,
+          "level": 2,
+          "text": "Namespace resolution"
+        }
+      ]
+    },
+    {
+      "path": "docs/spelling/spelling.md",
+      "bytes": 1261,
+      "sha256": "03ca027c3620626b06f347a0b58f2e7f2f50a8d8c2cd5b90e2a6a590432d0708",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "Spelling"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "text": "Spelling of CSpell"
+        },
+        {
+          "line": 11,
+          "level": 2,
+          "text": "Ignore word(s) in a file"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "text": "Disable CSpell by line"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "text": "Disable CSpell for multiple lines"
+        }
+      ]
+    },
+    {
+      "path": "docs/sql/conventions.md",
+      "bytes": 5838,
+      "sha256": "e596e6cf5abd254e10ef5f63ac28ad927b511bf54619b078852649e4f9c614a9",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "SQL coding conventions"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "text": "Reserved Words"
+        },
+        {
+          "line": 5,
+          "level": 3,
+          "text": "Drupal 8 and 9"
+        },
+        {
+          "line": 9,
+          "level": 3,
+          "text": "Drupal 7"
+        },
+        {
+          "line": 23,
+          "level": 2,
+          "text": "Capitalization and user-supplied data"
+        },
+        {
+          "line": 49,
+          "level": 2,
+          "text": "Naming"
+        },
+        {
+          "line": 58,
+          "level": 2,
+          "text": "Configure your Database server for standard compliance"
+        },
+        {
+          "line": 68,
+          "level": 2,
+          "text": "References"
+        },
+        {
+          "line": 73,
+          "level": 2,
+          "text": "Indentation"
+        }
+      ]
+    },
+    {
+      "path": "docs/sql/keywords.md",
+      "bytes": 13418,
+      "sha256": "56be505e9e2ba29c0f72a69e59dde4ff89cd93f139be9c89b9f5e5ccf2f2f1fe",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "List of SQL reserved words"
+        },
+        {
+          "line": 19,
+          "level": 2,
+          "text": "Reserved Words"
+        }
+      ]
+    },
+    {
+      "path": "docs/sql/select-from.md",
+      "bytes": 1086,
+      "sha256": "5b599b9f479705edfd13f35f4226b79a100449dade34295c7c48b8cf7a24dca9",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "Avoid \"SELECT * FROM ...\""
+        }
+      ]
+    },
+    {
+      "path": "docs/twig/coding.md",
+      "bytes": 10720,
+      "sha256": "5a2d683641b46f6f845ea345372705dc0d74292e806d5ee54b26457e7392270d",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "Twig coding standards"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "text": "The DocBlock"
+        },
+        {
+          "line": 31,
+          "level": 3,
+          "text": "Variables in the DocBlock"
+        },
+        {
+          "line": 43,
+          "level": 3,
+          "text": "Variable definitions in the DocBlock"
+        },
+        {
+          "line": 47,
+          "level": 3,
+          "text": "Variables referenced inline in the DocBlock"
+        },
+        {
+          "line": 60,
+          "level": 2,
+          "text": "Expressions"
+        },
+        {
+          "line": 64,
+          "level": 3,
+          "text": "Expressions: Checking if variables are available for printing"
+        },
+        {
+          "line": 78,
+          "level": 3,
+          "text": "Expressions: looping"
+        },
+        {
+          "line": 98,
+          "level": 3,
+          "text": "Expressions: setting variables"
+        },
+        {
+          "line": 107,
+          "level": 2,
+          "text": "HTML attributes"
+        },
+        {
+          "line": 135,
+          "level": 3,
+          "text": "Whitespace Control"
+        },
+        {
+          "line": 145,
+          "level": 4,
+          "text": "The spaceless filter"
+        },
+        {
+          "line": 151,
+          "level": 4,
+          "text": "whitespace modifier"
+        },
+        {
+          "line": 211,
+          "level": 3,
+          "text": "Filters"
+        },
+        {
+          "line": 227,
+          "level": 2,
+          "text": "Comments"
+        }
+      ]
+    },
+    {
+      "path": "docs/yaml/configuration-files.md",
+      "bytes": 3640,
+      "sha256": "65a94b43b64e1e2fad41ffbcb1bacc341c883d97563e2f2171946ee69d54f8fd",
+      "headings": [
+        {
+          "line": 1,
+          "level": 1,
+          "text": "YAML Configuration files"
+        },
+        {
+          "line": 3,
+          "level": 2,
+          "text": "Format"
+        },
+        {
+          "line": 7,
+          "level": 2,
+          "text": "Filename"
+        },
+        {
+          "line": 13,
+          "level": 3,
+          "text": "Simple configuration"
+        },
+        {
+          "line": 21,
+          "level": 3,
+          "text": "Configuration entities"
+        },
+        {
+          "line": 33,
+          "level": 2,
+          "text": "Comments"
+        },
+        {
+          "line": 37,
+          "level": 2,
+          "text": "Whitespace"
+        }
+      ]
+    },
+    {
+      "path": "logo.png",
+      "bytes": 299637,
+      "sha256": "31fb84648f6558654a0ddf08c705efa06557e1ff792e86c04c3b92d12627ac1b"
+    },
+    {
+      "path": "mkdocs.yml",
+      "bytes": 2502,
+      "sha256": "b1a2872ddfe062e568151dee4da624eb210aaf304487e6e2b3a07e3a181c8231"
+    }
+  ]
+}

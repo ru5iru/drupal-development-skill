@@ -1,0 +1,14 @@
+interface:
+  display_name: Drupal Development
+  short_description: Build and review Drupal code using supplied standards
+  default_prompt: Use $drupal-development to implement or review this Drupal change
+    against the bundled coding standards.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,27 @@
+# Local Python environments and caches.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local editors and OS metadata.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Local credentials and generated output.
+.env
+.env.*
+!.env.example
+/dist/
+/build/
+/site/
+
+# Refer to upstream instead of committing the original source archive.
+coding_standards-main.zip

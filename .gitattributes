@@ -1,0 +1,18 @@
+# Preserve every original byte, including on Windows checkouts.
+skills/drupal-development/references/standards/** -text
+
+# Consistent line endings for authored files.
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.svg text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+LICENSE text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.editorconfig text eol=lf
+
+# Later rules take precedence over extension rules above.
+skills/drupal-development/references/standards/** -text
