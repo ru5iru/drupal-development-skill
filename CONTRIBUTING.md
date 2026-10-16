@@ -55,6 +55,24 @@ python3 skills/drupal-development/scripts/verify_bundle.py
    `verify_bundle.py --archive /absolute/path/to/the/local/archive.zip` before
    discarding it. Include the source revision and results in the pull request.
 
+## Refresh the Sonar snapshot
+
+Keep `skills/drupal-development/references/sonar/exports/` byte-for-byte aligned
+with the complete supplied JSON exports. Preserve all section arrays, repeated
+framework contexts, classifications, and empty hotspot impact arrays. Record
+known profile/version/parameter provenance and leave unknown values null.
+
+After an authorized refresh, run the following from the repository root:
+
+```bash
+python3 skills/drupal-development/scripts/sonar_rules.py rebuild
+```
+
+Review the source changes, then run the full repository checks. Never rebuild
+hashes to hide unintended source edits. Do not add `rules.zip` or the Drupal
+source ZIP. Establish the applicable redistribution terms before publishing
+exported SonarSource descriptions.
+
 ## Licensing
 
 Submit original contributions under the MIT license. Preserve upstream copyright

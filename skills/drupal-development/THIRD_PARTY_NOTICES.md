@@ -38,6 +38,15 @@ These notices preserve upstream terms; they do not relicense the snapshot or
 grant additional rights to upstream material. Any separately identified
 third-party rights or notices in the snapshot continue to apply.
 
+## SonarSource rule exports
+
+The four user-supplied Sonar way rule exports under `references/sonar/exports/`
+are separate third-party material and are excluded from this project's MIT
+grant. See [the SonarSource notice](references/sonar/NOTICE.md) for attribution
+and the source/version-specific redistribution terms that remain to be established.
+The snapshot is usable locally without a Sonar server; it does not grant public
+redistribution rights or imply SonarSource endorsement.
+
 ## Scope of the MIT license
 
 The accompanying [LICENSE](LICENSE) covers this project's original skill

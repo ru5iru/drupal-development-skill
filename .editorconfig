@@ -20,3 +20,10 @@ end_of_line = unset
 insert_final_newline = unset
 indent_style = unset
 indent_size = unset
+
+[skills/drupal-development/references/sonar/exports/**]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+indent_style = unset
+indent_size = unset

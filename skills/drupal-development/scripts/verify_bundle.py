@@ -3,6 +3,7 @@
 
 import argparse
 import hashlib
+import importlib.util
 import json
 import re
 import sys
@@ -136,7 +137,8 @@ def verify(root, archive=None):
             errors.append(f"Source is not directly routed from SKILL.md: {name}")
 
     authored_docs = [root / "SKILL.md", root / "references/compatibility.md",
-                     root / "references/review-and-validation.md", map_path]
+                     root / "references/review-and-validation.md", map_path,
+                     root / "references/sonar-guidance.md", root / "references/sonar/index.md"]
     for path in authored_docs:
         for target in local_links(path.read_text()):
             resolved = (path.parent / target).resolve()
@@ -175,6 +177,15 @@ def verify(root, archive=None):
             if source.comment.decode("utf-8") != manifest["source_revision"]:
                 errors.append("Archive revision comment differs")
 
+    sonar_path = root / "scripts/sonar_rules.py"
+    if not sonar_path.is_file():
+        errors.append("Missing Sonar rule lookup/verifier")
+    else:
+        spec = importlib.util.spec_from_file_location("sonar_rules", sonar_path)
+        sonar = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(sonar)
+        errors.extend(sonar.verify(root))
+
     if errors:
         for error in errors:
             print(f"FAIL: {error}", file=sys.stderr)
@@ -184,6 +195,7 @@ def verify(root, archive=None):
     print(f"PASS: {len(paths)} files, {document_count} Markdown documents, "
           f"{section_count} section headings, {manifest['total_bytes']:,} source bytes")
     print("PASS: source hashes, complete index, direct routes, authored links, and site navigation")
+    print("PASS: complete Sonar exports, descriptions, framework contexts, manifest, and index")
     if archive is not None:
         print("PASS: archive hash, revision, full file set, and every file byte-for-byte")
     return 0
