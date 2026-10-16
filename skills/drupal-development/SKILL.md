@@ -1,11 +1,17 @@
 ---
 name: drupal-development
-description: Develop, debug, refactor, document, and review Drupal modules, themes, and integrations using the complete user-supplied Drupal coding standards. Use for Drupal PHP, hooks, services, PSR-4 classes, exceptions, JavaScript, behaviors, jQuery, CSS, Twig templates, SQL/schema changes, YAML configuration, Composer package naming, spelling, and coding-standards audits. Apply version-aware guidance for legacy and modern Drupal projects; consult the bundled full standards rather than relying on a summary.
+description: Develop, debug, refactor, analyze, document, and review Drupal modules, themes, and integrations against the complete supplied Drupal standards and 566 exported Sonar way PHP, HTML, CSS, and JavaScript rules. Use for Drupal PHP, hooks, services, PSR-4, exceptions, JavaScript behaviors, jQuery, HTML/Twig, CSS, SQL, YAML, Composer naming, spelling, security assessments, and standards/code-quality audits. Begin with a pre-work scope and clarification summary. Apply explicit Sonar Drupal-framework fallbacks, project-supported APIs, complete rule descriptions, and version-aware guidance.
 ---
 
 # Drupal Development
 
-Implement the requested Drupal change using the supplied standards as the coding-style baseline. Preserve behavior and public contracts unless the requested change requires otherwise.
+Develop, review, refactor, or analyze the requested scope against both the supplied Drupal practices and all applicable exported Sonar way rules. Preserve behavior and public contracts unless the requested change requires otherwise.
+
+## 0. State scope and clarification needs before work
+
+Before development, code review, refactoring, or substantive analysis, give the user a short list covering the requested scope, applicable Drupal/Sonar guidance, and any clarification needed. Use available project evidence to refine this summary during read-only discovery. Read [Sonar application guidance](references/sonar-guidance.md), especially its pre-work checklist, before selecting rules.
+
+Explicitly state `Clarifications needed: none` when the available context is sufficient. Otherwise list the specific unresolved questions and explain which decisions depend on them. Ask and wait before making dependent changes when an answer is essential; continue independent read-only discovery where useful. Do not repeat answered questions or invent blocking questions for routine choices. State reasonable nonblocking assumptions and unknown analyzer settings rather than claiming certainty.
 
 ## 1. Establish the project context
 
@@ -14,6 +20,7 @@ Implement the requested Drupal change using the supplied standards as the coding
 3. Identify the owning module/theme, machine name, relevant libraries, routes, services, configuration, templates, and existing tests. Follow installed APIs and nearby supported patterns.
 4. Read [compatibility and source limits](references/compatibility.md) before applying examples. Treat the bundled material as a fixed snapshot, despite its upstream “always-current” wording. Do not assume that old examples describe the installed APIs.
 5. Infer missing details from repository evidence. Ask only when a material choice cannot be resolved; for a standalone snippet, state the applicable version assumptions.
+6. Inspect available Sonar project configuration, analyzer/server versions, active rule parameters, file suffixes, exclusions, and existing reports. The attached exports do not supply these settings. Do not invent numeric thresholds or claim scanner parity without them. Confirm coverage of Drupal file types such as `.module`, `.install`, `.theme`, `.inc`, and `.twig` when relevant.
 
 ## 2. Load every applicable standard
 
@@ -44,25 +51,39 @@ Use the [complete source map](references/source-map.md) to find every file and s
 | Names, comments, and CSpell handling | [Spelling](references/standards/docs/spelling/spelling.md), [supplied project dictionary](references/standards/.cspell-project-words.txt) |
 | Markup or accessibility changes | [Markup source](references/standards/docs/markup/style.md), [accessibility source](references/standards/docs/accessibility/accessibility.md); account for their limited contents using the compatibility guidance |
 | Auditing the standards site's own build, navigation, or CI | [Source README](references/standards/README.md), [MkDocs configuration](references/standards/mkdocs.yml), [GitLab CI](references/standards/.gitlab-ci.yml), [source ignore file](references/standards/.gitignore) |
+| All PHP, HTML/Twig, CSS, or JavaScript development, review, refactoring, or analysis | [Sonar application guidance](references/sonar-guidance.md), [complete 566-rule index](references/sonar/index.md), then the full applicable rule entries through [offline lookup](scripts/sonar_rules.py) |
+| Exact Sonar PHP / HTML / CSS / JavaScript source or metadata | Original JSON exports: [PHP](references/sonar/exports/php.json), [HTML](references/sonar/exports/html.json), [CSS](references/sonar/exports/css.json), [JavaScript](references/sonar/exports/js.json); preserve all description sections, contexts, exceptions, examples, and impacts |
 
 Preserve the distinction between MUST, SHOULD, recommendations, exceptions, and historical examples. Do not turn a recommendation into an unconditional requirement or invent a rule where the source leaves a choice open.
 
+Inspect the complete index for every relevant language and concern, including security, testing, regex, and integration code. Read full matching rule descriptions before applying or reporting them; a title, search hit, or generic checklist is insufficient. Keep the full key (`php:`, `Web:`, `css:`, or `javascript:`) when citing a rule. Retrieve entries offline, resolving the script path against this skill:
+
+```bash
+python /absolute/path/to/drupal-development/scripts/sonar_rules.py list --language php --search Drupal
+python /absolute/path/to/drupal-development/scripts/sonar_rules.py show php:S100 php:S1781
+python /absolute/path/to/drupal-development/scripts/sonar_rules.py show php:S5808 --format json
+```
+
+When a Sonar rule explicitly defines a Drupal-framework fallback, follow that Drupal-specific behavior for Drupal code. In this snapshot `php:S1781` uses uppercase `TRUE`, `FALSE`, and `NULL` in Drupal, and `php:S100` describes Drupal function naming when its default regex is unchanged. Confirm framework context and any configured parameter override; do not apply the generic default or silently disable a rule. Resolve any remaining material conflict using the guidance and report it with both sources.
+
 ## 3. Implement or review the change
 
-1. Turn the applicable source sections into a short task-specific checklist. Use [review and validation](references/review-and-validation.md) to check coverage across file types and Drupal integration points.
+1. Turn the applicable Drupal source sections and Sonar rule entries into a short task-specific checklist. Use [review and validation](references/review-and-validation.md) to check coverage across file types and Drupal integration points. Include secondary concerns across all affected languages.
 2. Implement with APIs supported by the inspected project. Check service definitions, signatures, autoload paths, configuration names, asset attachments, and template/preprocess contracts together with the code that uses them.
 3. Keep code, comments, and names in US English. Apply the source's language-specific conventions: PHP `elseif` differs from JavaScript `else if`; PHP code constants differ from lowercase PHPDoc type names; CSS and JavaScript hooks have different purposes.
 4. Follow the full API-documentation rules, including special hook/update/callback documentation, tag order, fully qualified documentation types, and inherited documentation. Do not copy incomplete sample docblocks.
 5. For a standards-only cleanup, organize changes by rule across the agreed scope, as the general standard requires. For a functional task, keep related style fixes scoped to touched code; do not expand into an unrelated repository-wide cleanup.
-6. For a review-only request, report findings with file locations, the applicable source rule, impact, and a concrete correction. Separate confirmed violations from optional recommendations and unresolved version questions. Do not modify files unless authorized.
+6. For review or analysis, report findings with file locations, applicable Drupal source sections and/or full Sonar rule keys, evidence, impact, and a concrete correction. Separate confirmed defects, style recommendations, security hotspots needing assessment, and unresolved version/parameter questions. Do not modify files for a review-only request. For refactors, preserve framework contracts and behavior while addressing applicable rules and checking regressions.
 7. Treat additional engineering checks as implementation checks, not as rules claimed to appear in the archive. Do not claim the archive supplies comprehensive security, accessibility, deployment, or feature-development manuals.
+8. Apply every relevant exported rule with its exceptions and framework context. Keep required hook/callback parameters, distinguish complete HTML pages from Twig fragments, and check browser/runtime support before introducing new JavaScript APIs. Apply React, Node.js, WordPress, AWS CDK, and other framework-specific guidance only to matching code. For security hotspots, assess the described risk before deciding whether a fix is required; an empty exported `impacts` array is not proof of safety.
 
 ## 4. Verify and report
 
-1. Re-read the finished diff against the applicable full standards. Check every touched file type, including documentation, supporting YAML, and integration boundaries. Resolve conflicts through the compatibility workflow; disclose material deviations.
+1. Re-read the finished diff or reviewed scope against the applicable full Drupal standards and Sonar descriptions, including Drupal fallbacks and exceptions. Check every touched file type, documentation, supporting YAML, and integration boundary. Resolve conflicts through the compatibility workflow; disclose material deviations.
 2. Run the project's existing relevant checks using its pinned dependencies and configuration. Discover commands from repository scripts and CI. Use the command patterns in [review and validation](references/review-and-validation.md) only after confirming their prerequisites.
 3. Exercise changed behavior with appropriate tests or a targeted manual check. Include relevant failure/empty cases. Distinguish standards checks, syntax checks, behavior tests, and checks that could not run.
 4. Inspect the final working tree for unintended edits or generated artifacts. Report what changed, what passed, and any specific remaining limitation. Never report a check as passing merely because a tool is absent or a command ran against zero files.
+5. Distinguish bundle-integrity checks, manual Drupal/Sonar review, actual analyzer results, behavior tests, and quality-gate status. Run the existing configured scanner when available and authorized. Do not claim `Sonar passed`, zero findings, or a passing quality gate from reading these rules, running the bundle verifier, or using a different linter.
 
 ## Maintain source completeness
 
@@ -76,3 +97,5 @@ python /absolute/path/to/drupal-development/scripts/verify_bundle.py --archive /
 ```
 
 The first command checks bundled file hashes, sizes, document headings, navigation, and direct source links. The second also compares every original archive file and its archive hash. These checks verify reference completeness; use the target project's checks to verify Drupal code.
+
+Preserve the four Sonar exports byte-for-byte as a separate source set. Use [their manifest](references/sonar/manifest.json), [attribution notice](references/sonar/NOTICE.md), full index, and `sonar_rules.py verify` to verify all 566 rules, 1,343 description sections, and 43 contextual sections. `verify_bundle.py` also checks this source set. Use `scripts/test_sonar_rules.py` for loss-detection and retrieval tests. Do not commit either original ZIP to a distribution or reinterpret missing provenance, parameters, or licensing information as known values.

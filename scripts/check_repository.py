@@ -57,6 +57,13 @@ def check_repository(root):
         "skills/drupal-development/THIRD_PARTY_NOTICES.md",
         "skills/drupal-development/LICENSES/GPL-2.0-or-later.txt",
         "skills/drupal-development/scripts/verify_bundle.py",
+        "skills/drupal-development/scripts/sonar_rules.py",
+        "skills/drupal-development/scripts/test_sonar_rules.py",
+        "skills/drupal-development/references/sonar-guidance.md",
+        "skills/drupal-development/references/sonar/index.md",
+        "skills/drupal-development/references/sonar/manifest.json",
+        "skills/drupal-development/references/sonar/NOTICE.md",
+        "tests/test_sonar.py",
     ]
     errors = [f"Missing required file: {name}" for name in required
               if not (root / name).is_file()]

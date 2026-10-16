@@ -12,6 +12,8 @@
 
 Start from the changed behavior and every affected file type. Read full relevant standards from the routing table in `SKILL.md`. Use `source-map.md` for section-level navigation. Expand the checklist when the diff adds a new concern.
 
+Give the required scope/guidance/clarification summary before development, review, refactoring, or analysis. Include `Clarifications needed: none` when context is sufficient. Read [Sonar application guidance](sonar-guidance.md), inspect the [complete rule index](sonar/index.md) for every relevant language, and retrieve each applicable full description. Include Sonar exceptions, configured parameters when known, and Drupal-specific fallbacks in the task checklist. Do not substitute generic defaults for an explicit Drupal branch.
+
 | Change | Include in the review |
 | --- | --- |
 | PHP function, class, interface, trait, or enum | Formatting, arrays/operators, control structures, names, visibility/modifier order, type hints and compatibility, interface contracts, documentation, imports, PSR-4 placement, and empty/undefined-value semantics. Include enum-case and class-suffix rules where applicable. |
@@ -89,6 +91,10 @@ Perform two complementary reviews of the finished change:
 1. Review standards and integration coverage against the relevant source files and final diff.
 2. Verify the changed behavior using targeted tests or manual execution, plus available lint/syntax/build checks.
 
+Review both Drupal and applicable Sonar practices in each pass. Preserve framework contracts during refactors, separate security-hotspot assessments from confirmed defects, and report unknown thresholds or version-dependent choices. The reference checks (`verify_bundle.py`, `sonar_rules.py verify`, and `test_sonar_rules.py`) verify source integrity and retrieval; only actual configured analyzer output can establish Sonar findings or quality-gate status.
+
 Record exact commands, outcomes, and useful scope internally; summarize routine verification for the user. Separate a missing dependency, a skipped check, a pre-existing failure, and a new regression. Do not equate an ignored file or empty check set with success.
 
 For a code review, give each confirmed finding a file location, an explanation, and the source path/section that supports it. Mark recommendations and source ambiguities separately. For implementation, report changes, relevant checks, and unresolved limitations without claiming full standards compliance that was not verified.
+
+Include full Sonar keys for relevant findings and explain any applicable Drupal fallback or exception. Acknowledge the absence of actual Sonar analysis when it could not run. Do not interpret a missing scanner finding, an empty hotspot impact array, or a passing reference verifier as proof of safety.

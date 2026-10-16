@@ -1,7 +1,7 @@
 # Third-party notices
 
 Original repository and skill work is MIT licensed. The preserved Drupal
-standards are excluded from that MIT grant.
+standards and SonarSource rule exports are excluded from that MIT grant.
 
 The complete attribution and upstream license information travels with the
 installable skill in

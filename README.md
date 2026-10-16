@@ -1,8 +1,8 @@
 # Drupal Development Skill
 
 A reusable AI coding skill for developing and reviewing Drupal modules, themes,
-and integrations against a complete, preserved snapshot of Drupal coding
-standards.
+and integrations against complete preserved Drupal coding standards and 566
+user-supplied Sonar way PHP, HTML, CSS, and JavaScript rules.
 
 Repository: [ru5iru/drupal-development-skill](https://github.com/ru5iru/drupal-development-skill).
 
@@ -10,6 +10,12 @@ The skill covers PHP, API documentation, namespaces, PSR-4, exceptions,
 JavaScript, JSDoc, jQuery, CSS, Twig, SQL, YAML, Composer naming, and spelling.
 It tells the agent to inspect the project's installed versions, read every
 applicable standard, make scoped changes, and verify the result.
+
+Before development, reviews, refactors, or analysis, the agent lists the scope,
+applicable guidance, clarification needs, and verification limits. When context
+is sufficient it explicitly states `Clarifications needed: none`. Sonar rules'
+explicit Drupal fallbacks take precedence over their generic defaults, including
+the Drupal casing and function-naming branches in `php:S1781` and `php:S100`.
 
 ## Contents
 
@@ -39,6 +45,10 @@ applicable standard, make scoped changes, and verify the result.
 | [references/compatibility.md](skills/drupal-development/references/compatibility.md) | Legacy examples, version compatibility, and incomplete source sections |
 | [references/review-and-validation.md](skills/drupal-development/references/review-and-validation.md) | Review coverage and project-specific verification guidance |
 | [scripts/verify_bundle.py](skills/drupal-development/scripts/verify_bundle.py) | Dependency-free standards integrity verifier |
+| [Sonar application guidance](skills/drupal-development/references/sonar-guidance.md) | Combined workflow, Drupal fallbacks, context handling, and security assessments |
+| [Complete Sonar index](skills/drupal-development/references/sonar/index.md) | All 566 rules: 178 PHP, 49 HTML, 24 CSS, and 315 JavaScript |
+| [Sonar source manifest](skills/drupal-development/references/sonar/manifest.json) | Original JSON hashes, rule keys, 1,343 sections, 43 contextual sections, and provenance limits |
+| [Offline Sonar lookup](skills/drupal-development/scripts/sonar_rules.py) | Full rule descriptions, examples, exceptions, framework variants, and original JSON retrieval |
 | [Upstream Drupal Coding Standards](https://git.drupalcode.org/project/coding_standards) | Source repository for reference and future standards updates |
 | [scripts/check_repository.py](scripts/check_repository.py) | Repository, metadata, local-link, and CI configuration validation |
 | [tests/](tests/) | Failure-detection tests for the bundle verifier and repository validator |
@@ -47,6 +57,11 @@ applicable standard, make scoped changes, and verify the result.
 This is a skill repository, not a Drupal module. It needs no Drupal, PHP, Node.js,
 Composer, API key, or database to install. Python 3.10+ is needed only for the
 bundled integrity verifier. Repository development checks also use PyYAML.
+
+The Sonar export files are a fixed user-supplied snapshot. Their server/analyzer
+versions, active parameters, profile identifiers, and export time were not
+provided. The skill preserves those unknowns and does not invent thresholds or
+claim that manual review equals a passing Sonar analysis or quality gate.
 
 The original `coding_standards-main.zip` is not included. Refer to the
 [upstream repository](https://git.drupalcode.org/project/coding_standards)
@@ -163,6 +178,18 @@ references, implement or report findings within scope, and summarize checks and
 remaining limitations. The skill's verifier checks the reference bundle;
 Drupal code still needs its own project's linting and behavior tests.
 
+Read full Sonar descriptions offline from this repository:
+
+```bash
+python3 skills/drupal-development/scripts/sonar_rules.py list --language php --search Drupal
+python3 skills/drupal-development/scripts/sonar_rules.py show php:S100 php:S1781
+python3 skills/drupal-development/scripts/sonar_rules.py show php:S5808 --format json
+```
+
+The HTML export uses full `Web:` keys; JavaScript uses `javascript:` keys.
+Security hotspots require assessment and are reported separately from confirmed
+defects. Framework-specific rules apply only to matching code.
+
 ## Validation and CI
 
 Run the standalone source check without installing packages:
@@ -187,6 +214,8 @@ activation is unavailable, run `.venv\Scripts\python.exe` directly.
 GitHub Actions runs the same checks on Python 3.10 and 3.13, plus Python syntax
 compilation. Checks cover bundled source hashes and sizes, section indexing,
 navigation, metadata, authored local links, and intentional failure cases.
+This includes 18 Sonar snapshot/retrieval tests in addition to the existing 18
+repository tests. The combined verifier checks both original source sets.
 The workflow has read-only repository permissions, needs no secrets, and pins
 its checkout/setup actions to full commit hashes. Dependabot proposes updates
 to those actions and the development dependency.

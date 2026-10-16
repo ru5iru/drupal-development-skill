@@ -1,5 +1,6 @@
 # Preserve every original byte, including on Windows checkouts.
 skills/drupal-development/references/standards/** -text
+skills/drupal-development/references/sonar/exports/** -text
 
 # Consistent line endings for authored files.
 *.md text eol=lf
@@ -16,3 +17,4 @@ LICENSE text eol=lf
 
 # Later rules take precedence over extension rules above.
 skills/drupal-development/references/standards/** -text
+skills/drupal-development/references/sonar/exports/** -text

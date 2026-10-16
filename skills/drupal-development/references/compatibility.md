@@ -57,6 +57,8 @@ Preserve the source's provenance and bytes. Keep explanations or compatibility d
 
 Treat the accessibility page as a one-line placeholder. Treat the markup page as a short external pointer, not a bundled markup specification. Treat linked Twig standards and tool documentation as external references whose contents are absent from the archive. Acknowledge these boundaries when a task depends on them.
 
-Use repository accessibility/markup requirements and supported implementation checks for a real UI change. If the user needs additional standards beyond the archive, request the material or follow their authorization to obtain version-matched primary documentation. Do not claim accessibility conformance or complete external-document coverage from this archive alone.
+The separate [Sonar guidance](sonar-guidance.md) and [566-rule index](sonar/index.md) now supplement this Drupal archive with PHP, HTML, CSS, and JavaScript quality/security rules. Use them for development, reviews, refactors, and analysis. They provide specific HTML/accessibility checks while the original Drupal pages remain unchanged; they do not establish comprehensive accessibility or security conformance. Apply explicit Sonar Drupal fallbacks, including those in `php:S100` and `php:S1781`, before generic defaults.
+
+Use the supplied Sonar rules, repository accessibility/markup requirements, and supported implementation checks for a real UI change. If the task needs further guidance beyond both supplied source sets, request the material or follow the user's authorization to obtain version-matched primary documentation. Do not claim accessibility conformance or complete external-document coverage from this archive alone.
 
 Inspect incomplete fences, snippets, and stale links as source defects rather than instructions to generate broken code. Retain all such content for traceability and report a defect only when it affects the user's task.
