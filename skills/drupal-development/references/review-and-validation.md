@@ -4,6 +4,7 @@
 
 - [Plan coverage](#plan-coverage)
 - [Check integration boundaries](#check-integration-boundaries)
+- [Review simplicity](#review-simplicity)
 - [Choose project checks](#choose-project-checks)
 - [Use conditional command patterns](#use-conditional-command-patterns)
 - [Report evidence](#report-evidence)
@@ -41,6 +42,16 @@ Treat these as implementation checks to complement the supplied style standard, 
 - For behavior changes, exercise initial attachment and repeated/AJAX attachment where the existing project uses them; check detach/cleanup when changed.
 - For UI changes, inspect the affected component in relevant states, viewport sizes, keyboard interaction, and LTR/RTL contexts as applicable.
 - Preserve data and public API compatibility during a style-only change.
+
+## Review simplicity
+
+Read the changed code as its next maintainer. Follow the simplicity constraints in `SKILL.md` before accepting a standards-compliant result:
+
+- Trace the main behavior without unnecessary jumps between helpers or files. Replace dense expressions or deeply nested branches with clear steps when that improves understanding.
+- Identify the current need for each new class, interface, helper, service, option, and dependency. Remove speculative layers and reuse an existing project facility where appropriate. Keep framework-required boundaries and abstractions with a concrete responsibility.
+- Check that extraction names a meaningful operation rather than disguising complexity or satisfying a metric. Allow limited local repetition when sharing would couple unrelated behavior; extract genuinely shared behavior with a clear owner.
+- Preserve behavior, security, access/cache semantics, error visibility, and test coverage while simplifying. Never equate fewer lines or files with better design automatically.
+- In code reviews, explain the specific maintenance cost and offer the smallest useful correction. Distinguish a readability recommendation from a confirmed bug or sourced standards violation.
 
 ## Choose project checks
 

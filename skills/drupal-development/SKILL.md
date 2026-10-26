@@ -5,7 +5,7 @@ description: Develop, debug, refactor, analyze, document, and review Drupal modu
 
 # Drupal Development
 
-Develop, review, refactor, or analyze the requested scope against both the supplied Drupal practices and all applicable exported Sonar way rules. Preserve behavior and public contracts unless the requested change requires otherwise.
+Develop, review, refactor, or analyze the requested scope against both the supplied Drupal practices and all applicable exported Sonar way rules. Preserve behavior and public contracts unless the requested change requires otherwise. Treat readability and simplicity as acceptance criteria alongside correctness and standards compliance.
 
 ## 0. State scope and clarification needs before work
 
@@ -66,6 +66,19 @@ python /absolute/path/to/drupal-development/scripts/sonar_rules.py show php:S580
 
 When a Sonar rule explicitly defines a Drupal-framework fallback, follow that Drupal-specific behavior for Drupal code. In this snapshot `php:S1781` uses uppercase `TRUE`, `FALSE`, and `NULL` in Drupal, and `php:S100` describes Drupal function naming when its default regex is unchanged. Confirm framework context and any configured parameter override; do not apply the generic default or silently disable a rule. Resolve any remaining material conflict using the guidance and report it with both sources.
 
+## Keep the implementation easy to understand
+
+Apply these design constraints during development, refactoring, and review; use them alongside Drupal and Sonar requirements:
+
+- Choose the smallest coherent change that solves the current problem. Inspect nearby code and reuse existing services, utilities, and components before creating another implementation.
+- Prefer explicit control flow, descriptive domain names, and one clear responsibility per function. Optimize for a maintainer understanding the code in one read, not for the fewest lines. Avoid dense expressions, clever chaining, excessive indirection, and deeply nested branches.
+- Introduce a helper, class, interface, service, or configuration option only for a concrete current responsibility, meaningful reuse, an existing framework contract, or a necessary test boundary. Do not add factories, repositories, adapters, generic pipelines, or speculative extension points merely to anticipate future needs. Follow required Drupal dependency injection and plugin/service contracts without wrapping them in extra layers.
+- Keep straightforward one-use logic inline when extraction would merely rename an expression or force the reader to jump between files. Extract when it makes a cohesive operation easier to understand; do not fragment a function solely to reduce its length or a metric.
+- Keep validation at relevant trust boundaries and handle real failure cases. Avoid repeated checks for invariants the framework already guarantees, redundant fallback chains, swallowed exceptions, and invented defaults that conceal invalid state. Preserve security, access checks, escaping, cache metadata, and required contracts.
+- Use comments and required Drupal documentation to explain intent, contracts, or a non-obvious constraint. Do not narrate obvious statements or add prose to compensate for confusing code; simplify the code first.
+- Apply each mandatory standard and applicable Sonar rule using its full exceptions and Drupal fallback. Among compliant solutions, choose the clearest. Do not satisfy a metric with arbitrary helpers, hide findings through suppression, or weaken correctness/security to simplify code. Report a material unresolved conflict with evidence.
+- Before finishing, remove unnecessary new abstractions, duplicate branches, unused options, and avoidable file changes. Be able to explain the purpose of each new layer in one sentence tied to the current requirement. For review-only work, report complexity as a maintainability recommendation unless there is evidence of a defect or a specific violated rule; do not rewrite automatically.
+
 ## 3. Implement or review the change
 
 1. Turn the applicable Drupal source sections and Sonar rule entries into a short task-specific checklist. Use [review and validation](references/review-and-validation.md) to check coverage across file types and Drupal integration points. Include secondary concerns across all affected languages.
@@ -79,7 +92,7 @@ When a Sonar rule explicitly defines a Drupal-framework fallback, follow that Dr
 
 ## 4. Verify and report
 
-1. Re-read the finished diff or reviewed scope against the applicable full Drupal standards and Sonar descriptions, including Drupal fallbacks and exceptions. Check every touched file type, documentation, supporting YAML, and integration boundary. Resolve conflicts through the compatibility workflow; disclose material deviations.
+1. Re-read the finished diff for readability and unnecessary complexity using the [simplicity review](references/review-and-validation.md#review-simplicity), then check it against the applicable full Drupal standards and Sonar descriptions, including Drupal fallbacks and exceptions. Check every touched file type, documentation, supporting YAML, and integration boundary. Resolve conflicts through the compatibility workflow; disclose material deviations.
 2. Run the project's existing relevant checks using its pinned dependencies and configuration. Discover commands from repository scripts and CI. Use the command patterns in [review and validation](references/review-and-validation.md) only after confirming their prerequisites.
 3. Exercise changed behavior with appropriate tests or a targeted manual check. Include relevant failure/empty cases. Distinguish standards checks, syntax checks, behavior tests, and checks that could not run.
 4. Inspect the final working tree for unintended edits or generated artifacts. Report what changed, what passed, and any specific remaining limitation. Never report a check as passing merely because a tool is absent or a command ran against zero files.
